@@ -8,6 +8,7 @@
   --color-light-100: #cecefb;
   --color-light-200: #a8b5db;
   --background-image-hero-pattern: url("/hero-bg.png");
+  --breakpoint-xs: 480px;
 
 }
 
@@ -18,6 +19,10 @@
 
     h1 {
       @apply mx-auto text-center  font-bold  text-white sm:text-[64px] sm:leading-[76px];
+    }
+
+    h2 {
+      @apply text-2xl font-bold text-white sm:text-3xl;
     }
 
     main {
@@ -58,7 +63,15 @@
         @apply w-full bg-transparent py-2 sm:pr-10 pl-10 text-base text-gray-200 placeholder-light-200 outline-hidden;
       }
     }
+
+    .all-movies {
+      @apply space-y-9;
+  
+      & ul {
+        @apply grid grid-cols-1 gap-5 xs:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+      }
+    }
   }
   @utility text-gradient {
-    @apply bg-linear-to-r from-[#D6C7FF] to-[#9c77fc] bg-clip-text text-transparent;
+    @apply bg-linear-to-r from-[#D6C7FF] to-[#7047d6] bg-clip-text text-transparent;
   }
