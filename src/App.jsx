@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Search from './components/Search.jsx'
 import Spinner from './components/Spinner.jsx';
+import MovieCard from './components/MovieCard.jsx';
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -50,6 +51,7 @@ const App = () => {
       }
      
       setMovieList(data.results || []);
+      //console.log(data.results)
 
     } catch (error) {
       console.error(`Error fetching movies: ${error}`);
@@ -84,8 +86,10 @@ const App = () => {
           ) : (
 
             <ul>
+            
               {movieList.map((movie) => (
-                <p key={movie.id} className='text-white'>{movie.title}</p>
+                //<p key={movie.id} className='text-white'>{movie.title}</p>
+                <MovieCard key={movie.id} movie={movie}/>
               ))}
             </ul>
           )}
