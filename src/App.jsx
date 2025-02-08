@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Search from './components/Search.jsx'
 import Spinner from './components/Spinner.jsx';
 import MovieCard from './components/MovieCard.jsx';
+import { Client } from 'appwrite';
 
 import { useDebounce } from 'react-use';
+import { updateSearchCount } from './appwrite.js';
 
 const API_BASE_URL = "https://api.themoviedb.org/3";
 
@@ -60,7 +62,10 @@ const App = () => {
       }
      
       setMovieList(data.results || []);
+      
       //console.log(data.results)
+
+      updateSearchCount();
 
     } catch (error) {
       console.error(`Error fetching movies: ${error}`);
